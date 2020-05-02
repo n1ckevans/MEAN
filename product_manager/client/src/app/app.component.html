@@ -1,0 +1,74 @@
+<h1>
+  PPM - Project Product Management
+</h1>
+<p>
+  <a [routerLink] = "['']"> Home</a>
+</p>
+<p>
+  <a [routerLink] = "['products']"> All Products</a>
+</p>
+<p>
+  <a [routerLink] ="['products/new']">Add an Product</a>
+</p>
+<hr>
+
+<router-outlet></router-outlet>
+
+
+
+import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
+@Component({
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css']
+})
+export class ProductComponent implements OnInit {
+  restaurant = null;
+
+  constructor(
+    private _httpService: HttpService,
+    private _router: Router,
+    private _activeRoute: ActivatedRoute,
+  ) { }
+
+  ngOnInit() {
+    this._activeRoute.params
+      .subscribe((params: Params) => {
+
+        this._httpService.getRestaurant(params.id)
+          .subscribe((data: any) => {
+
+            this.restaurant = data.product;
+          });
+      });
+  }
+
+}
+
+
+
+<p>
+  <a [routerLink] = "[':id/review']"> New review</a>
+</p>
+
+<hr>
+<h1>Reviews for {{ thisRestaurant.name }}</h1>
+<table>
+<thead>
+  <tr>
+    <th class="my-4 mx-4">Customer</th>
+    <th class="my-4 mx-4">Stars</th>
+    <th class="my-4 mx-4">Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let review of thisRestaurant.reviews">
+    <td class="my-2">{{ review.customer }}</td>
+    <td class="my-2">{{ review.stars }}</td>
+    <td class="my-2">{{ review.description }} </td>
+  </tr>
+</tbody>
+</table>

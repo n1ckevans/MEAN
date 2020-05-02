@@ -1,0 +1,26 @@
+<table class="table" style="text-align: left;">
+  <thead>
+    <h1>Pokemon API</h1>
+    <h2 *ngFor="let poke of tasks">{{ poke.name }}</h2>
+    <tr>
+      <th></th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let poke of pokemon">
+      <td></td>
+      
+    </tr>
+  </tbody>
+</table>
+<hr>
+
+<!-- <h1>Active Task</h1>
+<div *ngIf="activeTask" class="active-task">
+  <p>Title: {{ activeTask.title }}</p>
+  <p>Description: {{ activeTask.description }}</p>
+  <p>Completed: {{ activeTask.completed }}</p>
+</div> -->
+
+<router-outlet></router-outlet>

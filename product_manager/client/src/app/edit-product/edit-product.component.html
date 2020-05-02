@@ -1,0 +1,30 @@
+<!-- <p>
+  <a routerLink="/">Home</a>
+</p>
+<p>
+  <a routerLink="/all">All Products</a>
+</p>
+<p>
+  <a routerLink="/new">Add an Product</a>
+</p> -->
+<p *ngIf="errorMsg">{{ errorMsg }}</p>
+<form *ngIf="productToEdit !== null" (submit)="handleSubmit()">
+  <div>
+    <label>Title </label>
+    <input type="text" name="title" [(ngModel)]="productToEdit.title">
+  </div>
+  <div>
+    <label>Price </label>
+    <input type="number" name="price" [(ngModel)]="productToEdit.price">
+  </div>
+  <div>
+    <label>Image URL </label>
+    <input type="text" name="image" [(ngModel)]="productToEdit.image">
+  </div>
+  <button type="button" (click)="handleCancel()">
+    Cancel
+  </button>
+  <button>
+    Submit
+  </button>
+</form>

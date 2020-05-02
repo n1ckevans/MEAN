@@ -1,0 +1,33 @@
+<h1>Current Gold: {{ gold }}</h1>
+
+<h2>Farm</h2>
+<h3>Earn 2-5 Gold</h3>
+<button (click)="farm()">
+  Farm
+</button>
+
+
+<h2>Cave</h2>
+<h3>Earn 5-10 Gold</h3>
+<button (click)="cave()">
+  Cave
+</button>
+
+<h2>Casino</h2>
+<h3>Earn or Lose up to 100 Gold</h3>
+<button (click)="casino()">
+  Farm
+</button>
+
+<h2>House</h2>
+<h3>Earn 7-15 Gold</h3>
+<button (click)="house()">
+  Farm
+</button>
+
+
+
+<div *ngFor="let msg of msgs">
+<h4> {{ msg }}</h4>
+
+</div>

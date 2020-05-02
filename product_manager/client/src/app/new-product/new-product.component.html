@@ -1,0 +1,36 @@
+<!-- <p>
+  <a routerLink="/">Home</a>
+</p>
+<p>
+  <a routerLink="/all">All Products</a>
+</p>
+<p>
+  <a routerLink="/new">Add an Product</a>
+</p> -->
+<h3>Add a new Product:</h3>
+<div>
+  <p *ngFor="let error of errors" class="error">
+    {{ error }}
+  </p>
+</div>
+
+<form (submit)="handleSubmit()">
+  <div>
+    <label>Title </label>
+    <input type="text" name="title" [(ngModel)]="newProduct.title">
+  </div>
+  <div>
+    <label>Price </label>
+    <input type="number" name="price" [(ngModel)]="newProduct.price">
+  </div>
+  <div>
+    <label>Image URL </label>
+    <input type="text" name="image" [(ngModel)]="newProduct.image">
+  </div>
+  <button type="button" (click)="handleCancel()">
+    Cancel
+  </button>
+  <button>
+    Submit
+  </button>
+</form>

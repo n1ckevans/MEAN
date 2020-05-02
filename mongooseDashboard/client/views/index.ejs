@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mongoose Dashboard</title>
+</head>
+
+<body>
+  <h1>All Dogs</h1>
+
+  
+  <table style="text-align: left;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Breed</th>
+        <th>Edit</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(let dog of dogs) { %>
+      <tr>
+       <td><a href="/info/<%= dog.id %>"><%= dog.name %></a></td>
+        <td><%= dog.age %></td>
+        <td><%= dog.breed %></td>
+        <td><a href="/edit/<%= dog.id %>">Edit</a></td>
+        <td><a href="/delete/<%= dog.id %>">Remove</a></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+
+
+  
+  <a href="/new"><h2>Add a Dog to the Pack!</h2></a>
+
+</body>
+
+</html>
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quoting Dojo</title>
+</head>
+
+<body>
+  <h1>Enter a Quote</h1>
+
+  <form action="/quote" method="POST">
+    <div>
+      <label>Quote</label>
+      <input type="text" name="quote">
+    </div>
+    <div>
+      <label>By</label>
+      <input type="text" name="name">
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+
+  <hr>
+
+      <% for(let quote of quotes) { %>
+     
+        <h2>"<%= quote.quote %>" - 
+        <%= quote.name %></h2>
+        <h4> <%= quote.createdAt %> </h4>
+      
+      <% } %>
+ 
+
+</body>
+
+</html>
